@@ -44,7 +44,7 @@ func (ps *PublichServics) SendMessageToSubscribers(message models.Message) {
 		return
 	}
 	for _, conn := range connections {
-		err := conn.WriteJSON(message)
+		err := conn.WriteJSON(message.Message)
 		if err != nil {
 			log.Println("Writing Error:", err)
 			ps.RemoveConnection(conn)
